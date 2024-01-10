@@ -9,14 +9,17 @@ export const metadata: Metadata = {
   description: "The Best Store Ever & Best Deals & Free Ships",
 };
 
-export default function RootLayout({
-  children,
+export default function DashboardLayout({
+  children, // will be a page or nested layout
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-background`}>{children}</body>
-    </html>
+    <section>
+      {/* Include shared UI here e.g. a header or sidebar */}
+      <nav></nav>
+
+      {children}
+    </section>
   );
 }
