@@ -59,3 +59,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+.flex-center {
+  @apply flex justify-center items-center flex-row gap-2
+}
+.flex-between {
+  @apply flex justify-between items-center flex-row gap-2
+}
