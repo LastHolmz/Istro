@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 // import { Input } from "@/components/ui/input";
 // import { Label } from "@/components/ui/label";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+
 import {
   Sheet,
   SheetClose,
@@ -18,7 +20,9 @@ export function SheetDemo() {
     <div className=" block sm:hidden">
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant={"outline"}>Open</Button>
+          <Button variant={"secondary"}>
+            <HamburgerMenuIcon />
+          </Button>
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>

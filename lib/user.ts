@@ -1,9 +1,9 @@
 "use server";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, unstable_noStore } from "next/cache";
 import { User, clerkClient } from "@clerk/nextjs/server";
-import { Roles } from "@/types/globals";
 
 export async function getAllUsers(query?: string): Promise<User[]> {
+  // unstable_noStore()
   const user: User[] = await clerkClient.users.getUserList({ query });
   if (!user) return [];
   return user;

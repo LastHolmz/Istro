@@ -9,10 +9,9 @@ export default function Links() {
 
   return (
     <nav className=" hidden md:flex items-center">
-      {/* <Link href={"/dashboard"} > dashboard </Link> */}
-      {/* <Link href={"/dashboard/users"}> users </Link>*/}
-      <LinkItem href="dashboard" content="dashboard" />
-      <LinkItem href="dashboard/users" content="users" />
+      <LinkItem href="dashboard" content="Dashboard" />
+      <LinkItem href="dashboard/users" content="Users" />
+      <LinkItem href="dashboard/ali-express-products" content="Ali Express Products" />
     </nav>
   );
 }

@@ -19,7 +19,7 @@ export default function DashboardLayout({
   return (
     <section className="mt-2">
       {/* Include shared UI here e.g. a header or sidebar */}
-      <header className="flex-between">
+      <header className="flex-between mb-1">
         <Links />
         <SheetDemo />
         <Indicator />
