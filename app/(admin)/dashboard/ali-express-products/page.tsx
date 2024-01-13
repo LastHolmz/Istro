@@ -4,6 +4,6 @@ export default async function AliExpressPage({
   searchParams?: {
     query?: string;
   };
-}) { return <div>
-    Products page
-</div> }
+}) {
+  return <div>Products page</div>;
+}
