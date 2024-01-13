@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "../../globals.css";
 import Links from "./components/Links";
 import { SheetDemo } from "./components/Sheet";
+import Indicator from "./components/indicator";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,8 +22,10 @@ export default function DashboardLayout({
       <header className="flex-between">
         <Links />
         <SheetDemo />
+        <Indicator />
       </header>
-      <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow-md md:shadow-xl">
+      <div>
+      {/* <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow-md md:shadow-xl p-1"> */}
         {children}
       </div>
     </section>

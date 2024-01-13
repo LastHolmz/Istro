@@ -10,7 +10,12 @@ import {
 } from "@/components/ui/table";
 import { User } from "@clerk/nextjs/server";
 import { DialogDemo } from "./Dialog";
-export function TableDemo({ users }: { users: Partial<User[]> }) {
+import { Dialog } from "../../../components/Dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { TrashIcon } from "@radix-ui/react-icons";
+import DeleteUser from "../users/components/delete-user";
+export function TableDemo({ users }: { users: User[] }) {
   return (
     <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>
@@ -26,16 +31,23 @@ export function TableDemo({ users }: { users: Partial<User[]> }) {
       </TableHeader>
       <TableBody>
         {users?.map((user) => (
-          <TableRow key={user?.id}>
-            <TableCell>{user?.username}</TableCell>
+          <TableRow key={user.id}>
+            <TableCell>{user.username}</TableCell>
             <TableCell className="font-medium text-green-500">
-              {user?.publicMetadata.role as string}
+              {user.publicMetadata.role as string}
             </TableCell>
-            <TableCell>{user?.emailAddresses[0].emailAddress ?? ""}</TableCell>
-            <TableCell>{user?.passwordEnabled ? "yes" : "no"}</TableCell>
-            <TableCell>{user?.id}</TableCell>
-            <TableCell>
-              <DialogDemo />
+            <TableCell>{user.emailAddresses[0].emailAddress ?? ""}</TableCell>
+            <TableCell>{user.passwordEnabled ? "yes" : "no"}</TableCell>
+            <TableCell>{user.id}</TableCell>
+            <TableCell className="flex-center">
+              <DialogDemo
+                id={user.id as string}
+                username={user.username as string}
+              />
+              <DeleteUser
+                id={user.id as string}
+                username={user.username as string}
+              />
             </TableCell>
           </TableRow>
         ))}

@@ -50,7 +50,11 @@ export function SubmitButton() {
   );
 }
 
-export function DialogDemo() {
+interface Props {
+  id: string;
+  username: string;
+}
+export function DialogDemo({ id, username }: Props) {
   const [state, useFormAction] = useFormState(updateUser, initialState);
   return (
     <Dialog>
@@ -72,18 +76,18 @@ export function DialogDemo() {
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="name" className="text-right">
-                Email
+                username
               </Label>
               <Input
                 min={4}
                 id="name"
-                type={"email"}
-                name="email"
-                // value="Pedro Duarte"
+                type={"text"}
+                name="username"
+                defaultValue={username}
                 className="col-span-3"
               />
+              <Input type={"hidden"} name="id" value={id} />
             </div>
-            <div className="grid grid-cols-4 items-center gap-4"></div>
             <DialogFooter>
               <SubmitButton />{" "}
             </DialogFooter>{" "}

@@ -28,7 +28,7 @@ export function LinkItem({ href, content }: LinkProps) {
         className={cn(
           "flex-center h-12 px-4",
           pathname === `/${href}`
-            ? "text-sky-900 dark:text-sky-600"
+            ? "text-rose-900 dark:text-rose-600"
             : "dark:text-white text-black"
         )}
         href={`/${href}`}
@@ -38,7 +38,7 @@ export function LinkItem({ href, content }: LinkProps) {
       <div
         className={cn(
           "h-1 w-full transition-all rounded-lg",
-          pathname === `/${href}` && "bg-sky-900 dark:bg-sky-600"
+          pathname === `/${href}` && "bg-rose-900 dark:bg-rose-600"
         )}
       />
     </div>
