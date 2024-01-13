@@ -1,7 +1,8 @@
 import { getAllUsers } from "@/lib/user";
 import { TableDemo } from "../components/Table";
 import Search from "./components/Search";
-
+// import dynamic from "next/dynamic";
+// export dynamic = 
 export default async function page({
   searchParams,
 }: {

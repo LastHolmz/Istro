@@ -10,10 +10,6 @@ import {
 } from "@/components/ui/table";
 import { User } from "@clerk/nextjs/server";
 import { DialogDemo } from "./Dialog";
-import { Dialog } from "../../../components/Dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { TrashIcon } from "@radix-ui/react-icons";
 import DeleteUser from "../users/components/delete-user";
 export function TableDemo({ users }: { users: User[] }) {
   return (

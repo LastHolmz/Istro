@@ -24,7 +24,7 @@ export default function DashboardLayout({
         <SheetDemo />
         <Indicator />
       </header>
-      <div>
+      <div className=" px-2 sm:px-4 md:px-8 lg:px-16">
       {/* <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow-md md:shadow-xl p-1"> */}
         {children}
       </div>

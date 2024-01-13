@@ -3,10 +3,9 @@
 import { cn } from "@/lib/utils";
 // import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const Indicator = () => {
-  const router = useRouter();
   const  pathname  = usePathname();
 
   // Split the pathname into segments
