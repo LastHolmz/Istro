@@ -33,18 +33,14 @@ export interface CreateProductProps {
   description: string;
   mainImage: string;
   category: {
-    // create: {
     mainCategory: string;
     subcategories: string[];
-    // };
   };
   colors: {
-    // create: {
     imgUrl: string;
     qty: number;
     price?: number;
     size?: string;
-    // }[];
   }[];
 }
 
