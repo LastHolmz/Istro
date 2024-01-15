@@ -1,5 +1,5 @@
 "use server";
-import { Category, PrismaClient, Project } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 /* 
@@ -74,6 +74,18 @@ export async function createProduct(props: CreateProductProps) {
 export async function getAllProducts() {
   const products = await prisma.product.findMany({});
   return products;
+}
+export async function getProductById(id: string) {
+  const product = await prisma.product.findFirst({
+    include: {
+      colors: true,
+      category: true,
+    },
+    where: {
+      id: id,
+    },
+  });
+  return product;
 }
 
 // export async function createProject({

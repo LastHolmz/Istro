@@ -51,7 +51,7 @@ model Color {
   size      String?
   price     Int?
   imgUrl    String
-  product   Product @relation(fields: [productId], references: [id])
+  product   Product? @relation(fields: [productId], references: [id])
 }
 
 model Comment {
