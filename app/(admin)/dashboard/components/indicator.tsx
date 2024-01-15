@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 // import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { HomeIcon } from "@radix-ui/react-icons";
+
 
 const Indicator = () => {
   const  pathname  = usePathname();
@@ -15,7 +17,9 @@ const Indicator = () => {
     <nav>
       <ul className=" flex text-sm items-center gap-2">
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/">
+            <HomeIcon/>
+          </Link>
         </li>
         {pathSegments.map((segment, index) => (
           <li key={index}>
