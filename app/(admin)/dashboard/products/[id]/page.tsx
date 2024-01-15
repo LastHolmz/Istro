@@ -1,6 +1,16 @@
 import { getAllProducts, getProductById } from "@/prisma/product";
 import type { Metadata } from "next";
-
+type Product = {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date | null;
+  price: number | null;
+  basicPrice: number | null;
+  author: string;
+  mainImage: string;
+  description: string;
+  title: string;
+};
 export async function generateMetadata({
   params,
 }: {
@@ -27,6 +37,6 @@ const ProductPage = async ({ params }: { params: { id: string } }) => {
 export default ProductPage;
 
 export async function generateStaticParams() {
-  const products = await getAllProducts();
-  return products.map((product) => ({ id: product.id }));
+  const products: Product[] = await getAllProducts();
+  return products.map((product: Product) => ({ id: product.id }));
 }
