@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  clerkId  String
+  username String
+  email    String
+  comments Comment[]
+  rates    Rate[]
+}
+
+model Product {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @updatedAt
+  price       Int?
+  basicPrice  Int?
+  author      String
+  category    Category?
+  mainImage   String
+  colors      Color[]
+  description String
+  comments    Comment[]
+  rates       Rate[]
+  title       String
+}
+
+model Category {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  productId     String   @unique @db.ObjectId
+  product       Product  @relation(fields: [productId], references: [id])
+  mainCategory  String
+  subcategories String[]
+}
+
+model Color {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  productId String  @db.ObjectId
+  qty       Int
+  size      String?
+  price     Int?
+  imgUrl    String
+  product   Product? @relation(fields: [productId], references: [id])
+}
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  String   @db.ObjectId
+  productId String   @db.ObjectId
+  product   Product? @relation(fields: [productId], references: [id])
+}
+
+model Rate {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  fiveStars  Int?
+  fourStars  Int?
+  therrStars Int?
+  twoStars   Int?
+  oneStar    Int?
+  authorId   String   @db.ObjectId
+  author     User?    @relation(fields: [authorId], references: [id])
+  productId  String   @db.ObjectId
+  product    Product? @relation(fields: [productId], references: [id])
+}
+
+// npx prisma generate
